@@ -50,4 +50,9 @@ https://codelabs.developers.google.com/codelabs/your-first-pwapp/#0
 
 1. Download source code
 2. Install Web server for Chrome: https://goo.gl/IoEaMq
-3. 
+3. Point to the work folder and test it works: http://127.0.0.1:8887/
+4. Test with fake data
+5. Start with a fast first load
+    * User preferences, like the list of cities a user has subscribed to, should be stored locally using IndexedDB or another fast storage mechanism. To simplify this code lab as much as possible, we've used localStorage, which is not ideal for production apps because it is a blocking, synchronous storage mechanism that is potentially very slow on some devices.
+    * https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+    * Extra Credit: Replace localStorage implementation with idb, check out localForage as a simple wrapper to idb.
