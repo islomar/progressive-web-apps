@@ -38,9 +38,14 @@ Slides:
 
 ##Interesting links
 * https://developers.google.com/web/progressive-web-apps/
-    * Tutorial: https://codelabs.developers.google.com/codelabs/your-first-pwapp/#0
 * https://pwa.rocks
 * http://offlinefirst.org
 * PWA Checklist: https://developers.google.com/web/progressive-web-apps/checklist
 
 
+##Tutorial from Google
+https://codelabs.developers.google.com/codelabs/your-first-pwapp/#0
+
+1. Download source code
+2. Install Web server for Chrome: https://goo.gl/IoEaMq
+3. 
