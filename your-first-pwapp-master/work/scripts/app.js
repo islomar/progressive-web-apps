@@ -44,15 +44,18 @@
     app.toggleAddDialog(true);
   });
 
-  document.getElementById('butAddCity').addEventListener('click', function() {
+document.getElementById('butAddCity').addEventListener('click', function() {
     // Add the newly selected city
     var select = document.getElementById('selectCityToAdd');
     var selected = select.options[select.selectedIndex];
     var key = selected.value;
     var label = selected.textContent;
-    // TODO init the app.selectedCities array here
+    if (!app.selectedCities) {
+      app.selectedCities = [];
+    }
     app.getForecast(key, label);
-    // TODO push the selected city to the array and save here
+    app.selectedCities.push({key: key, label: label});
+    app.saveSelectedCities();
     app.toggleAddDialog(false);
   });
 
@@ -308,7 +311,7 @@
     }
   };
   // TODO uncomment line below to test app with fake data
-  app.updateForecastCard(initialWeatherForecast);
+  //app.updateForecastCard(initialWeatherForecast);
 
   // TODO add startup code here
 /************************************************************************
@@ -340,6 +343,6 @@
     ];
     app.saveSelectedCities();
   }
-  
+
   // TODO add service worker code here
 })();
