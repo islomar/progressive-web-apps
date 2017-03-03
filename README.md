@@ -16,6 +16,7 @@ Slides:
  * Responsive CSS
  * Service Workers
     * https://developers.google.com/web/fundamentals/getting-started/primers/service-workers
+    * Service workers tutorial: https://codelabs.developers.google.com/codelabs/debugging-service-workers/#0
  * Web Push Notifications
     * https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/
     * Example: https://github.com/GoogleChrome/samples/tree/gh-pages/push-messaging-and-notifications
@@ -28,6 +29,7 @@ Slides:
 
 **Examples**
 * Twitter mobile site (React PWA)
+    * https://www.infoq.com/news/2017/02/twitter-react-mobile-stack?utm_source=twitter&utm_campaign=calendar&utm_medium=link
 * Telegram web based
 * Alibaba
 
@@ -56,3 +58,9 @@ https://codelabs.developers.google.com/codelabs/your-first-pwapp/#0
     * User preferences, like the list of cities a user has subscribed to, should be stored locally using IndexedDB or another fast storage mechanism. To simplify this code lab as much as possible, we've used localStorage, which is not ideal for production apps because it is a blocking, synchronous storage mechanism that is potentially very slow on some devices.
     * https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
     * Extra Credit: Replace localStorage implementation with idb, check out localForage as a simple wrapper to idb.
+    * https://github.com/localForage/localForage
+6. Use service workers to pre-cache the App Shell:
+    * Service worker functionality is only available on pages that are accessed via HTTPS (http://localhost and equivalents will also work, to facilitate testing). To learn about the rationale behind this restriction check out Prefer Secure Origins For Powerful New Features from the Chromium team.
+    * Register the service worker if it's available
+    * Cache the site assets
+7. TBD  
