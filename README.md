@@ -63,4 +63,6 @@ https://codelabs.developers.google.com/codelabs/your-first-pwapp/#0
     * Service worker functionality is only available on pages that are accessed via HTTPS (http://localhost and equivalents will also work, to facilitate testing). To learn about the rationale behind this restriction check out Prefer Secure Origins For Powerful New Features from the Chromium team.
     * Register the service worker if it's available
     * Cache the site assets
+    * Serve the app shell from the cache
+    * Beware of the edge cases: use something like https://github.com/GoogleChrome/sw-precache
 7. TBD  

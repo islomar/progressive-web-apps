@@ -1,4 +1,4 @@
-var cacheName = 'weatherPWA-step-6-1';
+var cacheName = 'weatherPWA-step-6-2';
 var filesToCache = [
   '/',
   '/index.html',
@@ -42,4 +42,13 @@ self.addEventListener('activate', function(e) {
     })
   );
   return self.clients.claim();
+});
+
+self.addEventListener('fetch', function(e) {
+  console.log('[ServiceWorker] Fetch', e.request.url);
+  e.respondWith(
+    caches.match(e.request).then(function(response) {
+      return response || fetch(e.request);
+    })
+  );
 });
