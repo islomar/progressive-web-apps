@@ -1,11 +1,11 @@
 // Copyright 2016 Google Inc.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
+//
 //      http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -169,6 +169,24 @@ document.getElementById('butAddCity').addEventListener('click', function() {
     var url = 'https://query.yahooapis.com/v1/public/yql?format=json&q=' +
         statement;
     // TODO add cache logic here
+    if ('caches' in window) {
+      /*
+       * Check if the service worker has already cached this city's weather
+       * data. If the service worker has the data, then display the cached
+       * data while the app fetches the latest data.
+       */
+      caches.match(url).then(function(response) {
+        if (response) {
+          response.json().then(function updateFromCache(json) {
+            var results = json.query.results;
+            results.key = key;
+            results.label = label;
+            results.created = json.query.created;
+            app.updateForecastCard(results);
+          });
+        }
+      });
+    }
 
     // Fetch the latest data.
     var request = new XMLHttpRequest();
@@ -349,5 +367,5 @@ document.getElementById('butAddCity').addEventListener('click', function() {
     navigator.serviceWorker
              .register('./service-worker.js')
              .then(function() { console.log('Service Worker Registered'); });
-  }  
+  }
 })();
