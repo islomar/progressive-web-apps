@@ -66,4 +66,18 @@ https://codelabs.developers.google.com/codelabs/your-first-pwapp/#0
     * Cache the site assets
     * Serve the app shell from the cache
     * Beware of the edge cases: use something like https://github.com/GoogleChrome/sw-precache
-7. TBD
+7. Use service workers to cache the forecast data
+    * The cache-first-then-network strategy is ideal for our app. It gets data on screen as quickly as possible, then updates that once the network has returned the latest data.
+8. Support native integration
+    * Web app install banners give you the ability to let your users quickly and seamlessly add your web app to their home screen, making it easy to launch and return to your app.
+    * Chrome then uses a set of criteria including the use of a service worker, SSL status and visit frequency heuristics to determine when to show the banner.
+    * Chrome and Opera Mobile, the only browsers that support web app manifests
+    * An easy way to track how the app is launched is to add a query string to the start_url parameter and then use an analytics suite to track the query string. If you use this method, remember to update the list of files cached by the App Shell to ensure that the file with the query string is cached.
+    * Best practices:
+        * Place the manifest link on all your site's pages, so it will be retrieved by Chrome right when the user first visits, no matter what page they land on.
+        * The short_name is preferred on Chrome and will be used if present over the name field.
+        * Define icon sets for different density screens. Chrome will attempt to use the icon closest to 48dp, for example, 96px on a 2x device or 144px for a 3x device.
+        * Remember to include an icon with a size that is sensible for a splash screen and don't forget to set the background_color.
+    * Further reading: https://developers.google.com/web/fundamentals/engage-and-retain/app-install-banners/
+9. Deploy to a secure host and celebrate
+    * TBD
