@@ -80,4 +80,7 @@ https://codelabs.developers.google.com/codelabs/your-first-pwapp/#0
         * Remember to include an icon with a size that is sensible for a splash screen and don't forget to set the background_color.
     * Further reading: https://developers.google.com/web/fundamentals/engage-and-retain/app-install-banners/
 9. Deploy to a secure host and celebrate
-    * TBD
+    * The final step is to deploy our weather app to a server that supports HTTPS. If you don't already have one, the absolute easiest (and free) approach is to use the static content hosting from Firebase.
+    * There's one more thing that you should consider, minifying the key styles and inlining them directly into index.html. Page Speed Insights recommends serving the above the fold content in the first 15k bytes of the request.
+    * Project Console: https://console.firebase.google.com/project/weather-33233/overview
+    * Hosting URL: https://weather-33233.firebaseapp.com
